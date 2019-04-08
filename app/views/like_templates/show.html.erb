@@ -34,7 +34,11 @@
       </dt>
       <!-- Display dish_id start -->
       <dd>
-        <%= @like.dish_id %>
+        <% if @like.dish.present? %>
+          <a href="/dishes/<%= @like.dish_id %>">
+            <%= @like.dish.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display dish_id end -->
 
@@ -43,7 +47,11 @@
       </dt>
       <!-- Display user_id start -->
       <dd>
-        <%= @like.user_id %>
+        <% if @like.user.present? %>
+          <a href="/users/<%= @like.user_id %>">
+            <%= @like.user.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display user_id end -->
 
@@ -52,7 +60,11 @@
       </dt>
       <!-- Display venue_id start -->
       <dd>
-        <%= @like.venue_id %>
+        <% if @like.venue.present? %>
+          <a href="/venues/<%= @like.venue_id %>">
+            <%= @like.venue.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display venue_id end -->
 
