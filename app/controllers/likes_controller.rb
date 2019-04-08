@@ -33,6 +33,54 @@ class LikesController < ApplicationController
     end
   end
 
+  def create_row_from_dish
+    @like = Like.new
+
+    @like.dish_id = params.fetch("dish_id")
+    @like.user_id = params.fetch("user_id")
+    @like.venue_id = params.fetch("venue_id")
+
+    if @like.valid?
+      @like.save
+
+      redirect_to("/dishes/#{@like.dish_id}", notice: "Like created successfully.")
+    else
+      render("like_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_user
+    @like = Like.new
+
+    @like.dish_id = params.fetch("dish_id")
+    @like.user_id = params.fetch("user_id")
+    @like.venue_id = params.fetch("venue_id")
+
+    if @like.valid?
+      @like.save
+
+      redirect_to("/users/#{@like.user_id}", notice: "Like created successfully.")
+    else
+      render("like_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_venue
+    @like = Like.new
+
+    @like.dish_id = params.fetch("dish_id")
+    @like.user_id = params.fetch("user_id")
+    @like.venue_id = params.fetch("venue_id")
+
+    if @like.valid?
+      @like.save
+
+      redirect_to("/venues/#{@like.venue_id}", notice: "Like created successfully.")
+    else
+      render("like_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @like = Like.find(params.fetch("prefill_with_id"))
 
